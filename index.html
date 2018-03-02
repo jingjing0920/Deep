@@ -38,7 +38,7 @@
     .dpl-ft-cell2 .btn-share { width: 30%; display: table-cell; vertical-align: middle; min-width: 44px; max-width: 60px; height: 44px; text-align: center; border-right: 1px solid #ededed; font-size: 14px; color: #333;}
     .dpl-ft-cell2 .dpl-btn-submit{ width: 70%; }
     .btn-share .iconshare { display: inline-block; width: 20px; height: 20px; vertical-align: middle; position: relative;  top: -1px; margin-right: 5px; background: url(common/img/icon-share.png) center center no-repeat; background-size: 20px 20px;}
-    .dpl-footer{ background:rgba(0,0,0,.7); text-align: center; font-size: .26rem; color: #b6b6b6; padding-top: .6rem; padding-bottom: .7rem; }
+    .dpl-footer{ background:rgba(0,0,0,.85); text-align: center; font-size: .26rem; color: #b6b6b6; padding-top: .6rem; padding-bottom: .7rem; }
     .dpl-footer .dpl-footer-label{ display: inline-block; width: 1.74rem; height: .43rem; margin-top: .4rem; background: url(common/img/footer-label.png) no-repeat; background-size: contain; }
     /* actionsheet */
     .ft-actionsheet { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 9999; opacity: 0; pointer-events: none; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: end; background: rgba(0, 0, 0, 0.5); }
@@ -60,7 +60,7 @@
     /* content */
     .dpl-body{ width: 100%; background:url(flower/img/bg.jpg) center bottom no-repeat; background-size: cover; background-attachment: fixed;}
     .dpl-body:before { content: '';  position: fixed;  z-index: -1;  top: 0;  right: 0;  bottom: 0;  left: 0;  background: url(flower/img/bg.jpg) center 0 no-repeat;  background-size: cover;}
-    .dpl-wrapper{ position: relative; }
+    .dpl-wrapper{ position: relative; word-wrap: break-word; -webkit-hyphens: auto;  -ms-hyphens: auto; hyphens: auto;}
     .dpl-container{ width: 100%; }
     .dpl-container img{ width:100%; height: auto; vertical-align: middle; }
     .dpl-banner {}
@@ -88,7 +88,7 @@
     .dpl-hl-item{padding-bottom: .2rem;}
 	.dpl-hl-item .hl-img{width: 100%;}
     .dpl-hl-item .hl-tit{padding-top: .7rem;}
-    .dpl-hl-item .hl-txt{ padding:.4rem .6rem; font-size: 14px; line-height: 1.6; text-indent: 28px;  color: #666; word-break: break-all; }
+    .dpl-hl-item .hl-txt{ padding:.4rem .6rem; font-size: 14px; line-height: 1.6; text-indent: 28px;  color: #666; word-wrap: break-word; /*text-align: justify;*/ }
     .dpl-hl-item .hl-txt h4{ margin-bottom: 8px; font-size: 18px; color: #7fb2e6;}
     .dpl-hl-item .hl-txt p{ margin-bottom: 15px;}
     .dpl-hl-item .hl-txt-2 {text-align: center;text-indent: 0;}
@@ -97,7 +97,7 @@
     .dpl-hl-item .hl-slide-box{width: 100%;  padding-bottom:.4rem; overflow: hidden;}
     .dpl-hl-item .hl-swiper{padding-left:.4rem;}
     .dpl-hl-item .hl-swiper .swiper-slide{ width: 85%; }
-    .dpl-trip{ background-color:rgba(0,0,0,.7); }
+    .dpl-trip{ background-color:rgba(0,0,0,.8); }
     .dpl-trip-detail{padding-bottom: .3rem;}
     .dpl-trip-style2{ position: relative; height: 8.8rem;  padding:.5rem;}
     .dpl-trip-style2 .swiper-container {width: 100%; height: 100%;}
@@ -113,7 +113,7 @@
     .dpl-price-box .dpl-price-item{ border:1px solid #4a515c; padding:.4rem .3rem .3rem .3rem; position: relative; margin-bottom: .34rem; }
     .dpl-price-box .dpl-price-item h4{ display: inline-block; width: 1.8rem; text-align: center; color: #fff; font-size: .3rem; background: #4a515c; padding:0 .2rem; position: absolute; top:-.2rem; left:50%; margin-left: -.9rem; }
     .dpl-price-box .dpl-price-item .dpl-price-cont{  text-align: center; font-size: .26rem; color: #4a515c;}
-    .dpl-price-box .dpl-price-item .dpl-price-cont img{ width: 100%; }
+    .dpl-price-box .dpl-price-item .dpl-price-cont img{ width: 100%;}
     .dpl-price-box .dpl-price-item .dpl-price-cont.dpl-price-inner{padding:.15rem .2rem; }
     .dpl-price-box .dpl-price-item .pr1{ display: inline-block; font-size: .32rem; color:#4a515c; }
     .dpl-price-box .dpl-price-item .pr1 i{ font-weight: bold; font-size: .48rem;}
@@ -207,6 +207,7 @@
                                     <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-1-2.jpg" alt=""></div></div>
                                     <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-1-3.jpg" alt=""></div></div>
                                     <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-1-4.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-1-5.jpg" alt=""></div></div>
                                 </div>
                             </div>
                         </div>
@@ -216,8 +217,8 @@
                             <img src="flower/img/hl-2-1.jpg">
                         </div>
                         <div class="hl-txt">
-                        	<p>每个欧洲女孩的自行车筐中，都少不了鲜花。无论是肆意生长的雏菊，还是温婉可爱的郁金香，仿佛随着微风荡漾的裙摆才是春天的象征，而骑自行车穿梭在花田里的少女，是最亮丽的风景线。</p>
-                        	<p>这次旅行，我们约你一起，用最欧洲，最少女的方式拥抱春天——自行车骑行穿越荷兰最大的郁金香花园。 </p>
+                        	<p>发现巴黎隐秘的地方，破解这个城市的秘密，用脚步丈量太累，骑车太慢，地铁看不到地面的风光，老爷车有巴黎是最佳选项。</p>
+                        	<p>无论黄昏活清晨，坐在老爷车里，穿过巴黎的百年时光，哪些褪色的往事和发丝一起被风吹佛而过，仿佛梦回黄金时代。</p>
                         </div>
                         <div class="hl-slide-box">
                             <div class="swiper-container hl-swiper">
@@ -234,8 +235,8 @@
                             <img src="flower/img/hl-3-1.jpg">
                         </div>
                         <div class="hl-txt">
-                        	<p>在这个充满色彩、花香和情感的世界中，做一回专业的鲜花拍手，让全世界最好的鲜花尽收眼底。</p>
-                        	<p>拥有100多年历史的Royal FloraHolland是世界上最大的花材公司，它代表着最专业的花卉栽培传统和荷兰花材的最高品质。不仅如此，还可以参观荷兰专业的鲜花种植与生产，在这里，你将体验到一枝鲜花破土而出的喜悦，也将体验到花点时间海外鲜花生产合作伙伴的专业与真诚。</p>
+                        	<p>每个欧洲女孩的自行车筐中，都少不了鲜花。无论是肆意生长的雏菊，还是温婉可爱的郁金香，仿佛随着微风荡漾的裙摆才是春天的象征，而骑自行车穿梭在花田里的少女，是最亮丽的风景线。</p>
+                        	<p>这次旅行，我们约你一起，用最欧洲，最少女的方式拥抱春天——自行车骑行穿越荷兰最大的郁金香花园。 </p>
                         </div>
                         <div class="hl-slide-box">
                             <div class="swiper-container hl-swiper">
@@ -252,7 +253,8 @@
                             <img src="flower/img/hl-4-1.jpg">
                         </div>
                         <div class="hl-txt">
-                        	<p>当你到了巴黎，你就到了艺术的天堂。而巴黎最好的艺术品不仅仅藏在博物馆里，藏在美术馆里。如果你想用最“巴黎”的方式彻底体验一次艺术之都的热情。那么就要跟着地道的巴黎人，在手工艺艺术街区寻找答案。隐秘小巷里的手工艺者，橱窗背后的年轻画家……他们每个人都专注与热爱自己用双手构建的世界。</p>
+                        	<p>当你到了巴黎，你就到了艺术的天堂。而巴黎最好的艺术品不仅仅藏在博物馆里，藏在美术馆里。如果你想用最“巴黎”的方式彻底体验一次艺术之都的热情。那么就要跟着地道的巴黎人，在手工艺艺术街区寻找答案。</p>
+                        	<p>隐秘小巷里的手工艺者，橱窗背后的年轻画家……他们每个人都专注与热爱自己用双手构建的世界。</p>
                         </div>
                         <div class="hl-slide-box">
                             <div class="swiper-container hl-swiper">
@@ -281,6 +283,42 @@
                             </div>
                         </div>
                     </div>
+                    <div class="dpl-hl-item">
+                        <div class="hl-img">
+                            <img src="flower/img/hl-6-1.jpg">
+                        </div>
+                        <div class="hl-txt">
+                        	<p>如果说荷兰有哪朵花不会凋谢，那大约是梵高笔下的向日葵。带着梵高对这片土地的情感，定格在了画布中。从笔触的走向，可以清楚地感受到，那些油彩是经由怎样的情绪才落诸笔端的。</p>
+                        	<p>无需排队便可进入卢浮宫、奥赛博物馆聆听私人讲解，用宝贵的时间细细品味每一幅名作的臻致细节，探索荷兰的百年文化和世界艺术的发展。</p>
+                        </div>
+                        <div class="hl-slide-box">
+                            <div class="swiper-container hl-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-6-2.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-6-3.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-6-4.jpg" alt=""></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dpl-hl-item">
+                        <div class="hl-img">
+                            <img src="flower/img/hl-7-1.jpg">
+                        </div>
+                        <div class="hl-txt">
+                        	<p>在这个充满色彩、花香和情感的世界中，做一回专业的鲜花拍手，让全世界最好的鲜花尽收眼底。</p>
+                        	<p>拥有100多年历史的Royal FloraHolland是世界上最大的花材公司，它代表着最专业的花卉栽培传统和荷兰花材的最高品质。不仅如此，还可以参观荷兰专业的鲜花种植与生产，在这里，你将体验到一枝鲜花破土而出的喜悦，也将体验到花点时间海外鲜花生产合作伙伴的专业与真诚。</p>
+                        </div>
+                        <div class="hl-slide-box">
+                            <div class="swiper-container hl-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-7-2.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-7-3.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="swp-img"><img src="flower/img/hl-7-4.jpg" alt=""></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- //报名信息 -->
@@ -300,11 +338,6 @@
                         	<div class="slide-text">
                         		<h5>出发日期</h5>
                         		<p style="text-align: center;">2018年 4月15日</p>
-                        	</div>
-                        	<div class="slide-text">
-                        		<h5>报名流程</h5>
-                        		<p style="text-align: center;">请支付3000元定金确认报名</p>
-                        		<p style="text-align: center;">（此定金一经支付，不予退款，如拒签则依据拒签信退款）</p>
                         	</div>
                         </div>
                     </div>
@@ -335,7 +368,7 @@
 	                        				<div class="dpl-trip-info">
 	                        					<h4>阿姆斯特丹</h4>
 	                        					<div class="dpl-trip-text">
-	                        						<p class="text-1">花点时间独家探访荷兰优荷拍市－拥有百年历史的荷FleruaMez鲜花公司</p>
+	                        						<p class="text-1">花点时间独家探访荷兰优荷拍市－拥有百年历史的荷兰FleruaMez鲜花公司</p>
 	                        					</div>
 	                        				</div>
 	                        			</li>
@@ -385,7 +418,8 @@
 	                        				<div class="dpl-trip-info">
 	                        					<h4>巴黎   → 卢瓦尔河谷谷城堡</h4>
 	                        					<div class="dpl-trip-text">
-	                        						<p class="text-1">参观香波堡，Chaumont城堡，每年4-10月有许多艺术家园艺作品点缀城堡</p>
+	                        						<p class="text-1">· 参观香波堡，Chaumont城堡，每年4-10月有许多艺术家园艺作品点缀城堡</p>
+	                        						<p class="text-1" style="color: #ff8d35;">· 特别安排米其林大餐</p>
 	                        					</div>
 	                        				</div>
 	                        			</li>
