@@ -63,12 +63,12 @@
     .dpl-wrapper{ position: relative; word-wrap: break-word; -webkit-hyphens: auto;  -ms-hyphens: auto; hyphens: auto;}
     .dpl-container{ width: 100%; }
     .dpl-container img{ width:100%; height: auto; vertical-align: middle; }
-    .dpl-banner {}
+    .dpl-banner { position: relative;}
     .dpl-banner .dpl-logo{text-align: right; padding-right:.3rem; padding-top: .3rem;}
     .dpl-banner .dpl-logo .logo{ display: inline-block; width: 1.2rem; height: 1.29rem; background: url(vivid_sydney/img/logo.png); background-size: cover; }
-    .dpl-banner .dpl-topic{text-align: right; padding-top:1.6rem;}
+    .dpl-banner .dpl-topic{text-align: right; padding-top:0.6rem;}
     .dpl-banner .dpl-topic img{ width: 100%; height: auto;}
-    .dpl-btm{ padding-top: 7.6rem; }
+    .dpl-btm{ padding-top: 7rem; }
     .dpl-title{text-align: center; padding:.6rem 0;}
     .dpl-title img{ width: 100%; }
     .s-title{ text-align: center; padding-top: .5rem; }
@@ -105,7 +105,7 @@
     .dpl-trip-list{ display: block; padding:0 10px}
     .dpl-trip-list .dpl-trip-item{ display: block; overflow: hidden; position: relative; padding-left: 50px; color: #666666; margin-bottom: 15px;}
     .dpl-trip-list .dpl-trip-item .dpl-trip-num{ display: block; width: 40px; height: 30px; position: absolute; left: 0; font-size: 12px; color: #999; font-weight: 600; text-align: center; line-height: 30px; font-style: italic; background: url(vivid_sydney/img/icon-day.png) no-repeat; background-size: cover;}
-    .dpl-trip-list .dpl-trip-item .dpl-trip-info h4{ font-size: 14px; margin-bottom: 5px; color: #5182c4; font-style: italic; font-weight: 500;}
+    .dpl-trip-list .dpl-trip-item .dpl-trip-info h4{ font-size: 14px; margin-bottom: 5px; color: #11d4cd; font-style: italic; font-weight: 500;}
     .dpl-trip-list .dpl-trip-item .dpl-trip-text{font-size: 12px; color: #CCCCCC;}
     .dpl-trip-list .dpl-trip-item .dpl-trip-text .text-2{ font-size: 10px; color: #CCCCCC; margin-top: 5px;}
     .dpl-price-desc{ color: #1d467c; position: relative; background-color: #fff; }
@@ -147,6 +147,8 @@
     .slide-text h5{ font-weight: normal; font-size: 16px; color: #ff8d35; margin-bottom: 5px;}
     .slide-text p{ font-size: 16px; text-align: left;}
     .swp-img img{ background-color:#EDEDED;}
+    .sydney-logo{ display: inline-block; width:2.4rem; position: absolute; left: 0.15rem; bottom: 0.15rem;}
+    .sydney-logo img{ width: 100%;}
 </style>
 <script type="text/javascript">
     (function() {
@@ -177,6 +179,7 @@
             <div class="dpl-banner">
                 <p class="dpl-topic"><img src="vivid_sydney/img/topic.png"></p>
                 <div class="dpl-btm"></div>
+                <span class="sydney-logo"><img src="vivid_sydney/img/sydney.png"/></span>
             </div>
             <!-- //设计理念 -->
             <div class="dpl-concept">
