@@ -97,6 +97,8 @@
     .dpl-hl-item .hl-slide-box{width: 100%;  padding-bottom:.4rem; overflow: hidden;}
     .dpl-hl-item .hl-swiper{padding-left:30px;}
     .dpl-hl-item .hl-swiper .swiper-slide{ width: 85%; }
+    .dpl-hl-item .ct-swiper{}
+    .dpl-hl-item .ct-swiper .swiper-slide{ width: 80%; }
     .dpl-trip{ background-color:rgba(0,0,0,.8); }
     .dpl-trip-detail{padding-bottom: .3rem;}
     .dpl-trip-style2{ position: relative; height: 8.8rem;  padding:.5rem;}
@@ -144,7 +146,7 @@
     .case-desc{  padding:0 .3rem .3rem .3rem; }
     .case-desc p{ font-size: .24rem; }
     .slide-text{ text-align: center;}
-    .slide-text h5{ font-weight: normal; font-size: 16px; color: #ff8d35; margin-bottom: 5px;}
+    .slide-text h5{ font-weight: normal; font-size: 16px; color: #6ec9e4; margin-bottom: 5px;}
     .slide-text p{ font-size: 16px; text-align: left;}
     .swp-img img{ background-color:#EDEDED;}
 </style>
@@ -285,6 +287,71 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //参考酒店 -->
+            <div class="dpl-highlights">
+                <div class="dpl-title">
+                    <img src="morocco/img/nav-05.png"/>
+                </div>
+                <div class="dpl-hl-box">
+                    <div class="dpl-hl-item">
+                        <div class="hl-txt hl-txt-2">
+                        	<h2>这么住体验更好</h2>
+                        	<h4>为您推荐有特色、高性价比酒店</h4>
+                        	<div class="slide-text">
+                        		<h5>马拉喀什四季酒店</h5>
+                        		<p>五星级酒店，设施豪华。距马约尔花园车程3分钟，能领略到阿特拉斯山脉和阳光灿烂的马拉喀什美景。</p>
+                        	</div>
+                        	<div class="slide-text">
+                        		<h5>贝尔贝勒宫</h5>
+                        		<p>五星级艺术寺庙酒店，位于瓦尔扎扎特镇中心，距离著名的Kasbah de Taourirt纪念碑仅有5分钟车程。</p>
+                        	</div>
+                        	<div class="slide-text">
+                        		<h5>A&K Exclusive Camp</h5>
+                        		<p>A&K专属豪华帐篷，设施一应俱全，还能体会沙漠观星。</p>
+                        	</div>
+                        </div>
+                        <div class="hl-slide-box">
+                            <div class="swiper-container ct-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                    	<div class="swp-img"><img src="morocco/img/hotel-1.jpg" alt=""></div></div>
+                                    <div class="swiper-slide">
+                                    	<div class="swp-img"><img src="morocco/img/hotel-2.jpg" alt=""></div></div>
+                                    <div class="swiper-slide">
+                                    	<div class="swp-img"><img src="morocco/img/hotel-3.jpg" alt=""></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hl-txt hl-txt-2">
+                        	<div class="slide-text">
+                        		<h5>法拉杰套房酒店</h5>
+                        		<p>五星级，酒店位于菲斯的心脏地带，以前是阿拉伯摩尔人宫殿。还可以欣赏到麦地那的景致。</p>
+                        	</div>
+                        	<div class="slide-text">
+                        		<h5>丽娜莱德SPA酒店</h5>
+                        		<p>五星级，酒店坐落在舍夫沙万中心，提供一个屋顶露台，享有山区或麦地那的美景。</p>
+                        	</div>
+                        	<div class="slide-text">
+                        		<h5>卡萨布兰卡凯悦酒店</h5>
+                        		<p>五星级奢华酒店，距离卡萨布兰卡港、艾因迪亚布海滩位置便利。</p>
+                        	</div>
+                        </div>
+                        <div class="hl-slide-box">
+                            <div class="swiper-container ct-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                    	<div class="swp-img"><img src="morocco/img/hotel-4.jpg" alt=""></div></div>
+                                    <div class="swiper-slide">
+                                    	<div class="swp-img"><img src="morocco/img/hotel-5.jpg" alt=""></div></div>
+                                    <div class="swiper-slide">
+                                    	<div class="swp-img"><img src="morocco/img/hotel-6.jpg" alt=""></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -463,6 +530,10 @@
 	      mousewheel: true,
 	    });
         var hlSwiper = new Swiper('.hl-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 10
+        });
+        var hlSwiper = new Swiper('.ct-swiper', {
             slidesPerView: 'auto',
             spaceBetween: 10
         });
