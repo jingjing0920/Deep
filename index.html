@@ -1,616 +1,431 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>童趣台湾</title>
-<meta name="keywords" content="深度策划 中国台湾">
-<meta name="description" content="阿里山、日月潭，手工艺体验，看彩虹暮村">
-<meta name="HandheldFriendly" content="true">
-<meta name="MobileOptimized" content="width">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="telephone=no" name="format-detection">
-<link rel="stylesheet" type="text/css" href="common/css/swiper.min.css"> 
-<style type="text/css">
-    * { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; max-height: 100000px;}
-    *:before, *:after { box-sizing: border-box; max-height: 100000px; }
-    body, html { width: 100%; }
-    html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;}
-    html {/* font-size: 100px; */ }
-    body{font-size: .28rem; line-height: 1.5; font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif; background-color: #fff; color: #696d7b;  margin:0 auto; }
-    body{max-width: 640px; }
-	img{ border: 0;vertical-align: middle;}
-    a { background-color: transparent; text-decoration: none; }
-    a:active, a:hover { outline: 0; text-decoration: none;}
-    ul,li{list-style: none;}
-    i,em{font-style: normal;}
-    button{border:0 none;outline: 0;}
-    .clearfix { *zoom:1;}
-    .clearfix:after { display: block; clear: both; height: 0; overflow: hidden; visibility: hidden; content: "."; }
-    .clear { clear: both; height: 0; font-size: 1px; line-height: 0px; }
-    /* common */
-    /* .dpl-ft-bar~.dpl-container { padding-bottom: 68px } */
-    .dpl-ft-bar { position: fixed; z-index: 99; right: 0; left: 0; bottom: 0; height: 68px; width: 100%; border-bottom: 0; }
-    .dpl-ft-btn{border:0 none;}
-    .dpl-ft-cell2{width: 100%; display: table;}
-    .dpl-ft-cell2 a { display: table-cell;  height: 44px; width: 50%; text-align: center; vertical-align: middle;}
-    .dpl-btn-submit{ display: block; height: 44px; line-height: 44px; background:#57D07F; color: #FFF;  text-align: center; font-size: 15px;}
-    .dpl-ft-cell2 .btn-share { width: 30%; display: table-cell; vertical-align: middle; min-width: 44px; max-width: 60px; height: 44px; text-align: center; border-right: 1px solid #ededed; font-size: 14px; color: #333;}
-    .dpl-ft-cell2 .dpl-btn-submit{ width: 70%; }
-    .btn-share .iconshare { display: inline-block; width: 20px; height: 20px; vertical-align: middle; position: relative;  top: -1px; margin-right: 5px; background: url(common/img/icon-share.png) center center no-repeat; background-size: 20px 20px;}
-    .dpl-footer{ background:rgba(0,0,0,.6); text-align: center; font-size: .20rem; color: #b6b6b6; padding-top: .4rem; padding-bottom: 1.5rem; }
-    .dpl-footer .dpl-footer-label{ display: inline-block; width: 1.74rem; height: .43rem; margin-top: .15rem; background: url(common/img/footer-label.png) no-repeat; background-size: contain; }
-    /* foot btn */
-	.trip-route-footer{ width: 100%;display: -webkit-box;  display: -webkit-flex; display: flex; padding: 12px 20px; background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,.6) 100%);background-image: linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,.6) 100%);}
-	.trip-route-footer .foot-item1{-webkit-box-flex: 0 0 16%; -webkit-flex: 0 0 16%;flex: 0 0 16%; text-align: left; position: relative; padding-left: 10px; }
-	.trip-route-footer .foot-item1 .route-icons{ display: inline-block; width: 20px; height: 20px; margin: 3px auto; }
-	.trip-route-footer .foot-item1 .share{ background: url(common/img/icon-share2.png) center center no-repeat; background-size:20px 20px; }
-	.trip-route-footer .foot-item1 .txt{ display: block; font-size: 11px; color: #FFFFFF; line-height: 12px;}
-	.trip-route-footer .foot-item1.foot-consult:before{content: ''; display: inline-block; width: 5px; height: 30px; border-left: 1px solid rgba(220, 222, 224, .5); position: absolute; left: 0; top: 50%; margin-top: -15px; }
-	.trip-route-footer .foot-item2{-webkit-box-flex: 1; -webkit-flex: 1;flex: 1; }
-	.trip-route-footer .foot-item2 .route-btn-default{ display: block; height: 44px; line-height: 44px; background: #53CD85; text-align: center; font-size: 16px; color: #FFFFFF; -webkit-border-radius: 22px; border-radius: 22px;box-shadow:0px 3px 8px 0px rgba(23,25,29,0.12);}
-	.trip-route-footer .foot-item2 .route-btn-default .consult2{ display: inline-block; width: 16px; height: 16px; margin-right: 8px; background:url(common/img/icon-consult.png) center center no-repeat; background-size: 18px 18px; position: relative; top: 2px;}
-	.trip-route-footer .foot-item2 .route-btn-disabled{ background: #D5D5D5;}
-	/* actionsheet */
-    .ft-actionsheet { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 9999; opacity: 0; pointer-events: none; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: end; background: rgba(0, 0, 0, 0.5); }
-    .ft-actionsheet.show { pointer-events: inherit; opacity: 1; }
-    .ft-actionsheet.show .ft-actionsheet-cnt { -webkit-transform: translateY(0); -webkit-transition-delay: 0.3s; }
-    .ft-actionsheet-cnt { font-size: 14px; position: fixed; bottom: 0; width: 100%; background: rgba(255,255,255,.95); box-sizing: border-box; text-align: center; -webkit-transform: translateY(100%); -webkit-transition-property: all; -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 0.3s; }
-    .ft-actionsheet button, .ft-actionsheet h4 { display: block; width: 100%; box-sizing: border-box; }
-    .ft-actionsheet h4 { line-height: 24px; padding:12px; border-top-left-radius: 3px; border-top-right-radius: 3px; }
-    .ft-actionsheet .ft-actionsheet-del { color: #fd472b; }
-	.ft-actionsheet-cnt .lc-cancel{ background: #FFFFFF;line-height: 44px; height: 44px; font-size: .32rem; color: #333333;}
-	.ft-share-box{padding:0 .4rem .15rem .4rem;}
-	.ft-share-list{ width: 100%; display: flex; display: -webkit-flex; display: -webkit-box; }
-	.ft-share-item{ display: block; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; padding:10px 5px; text-align: center;}
-	.ft-share-item .lc-icon{ display: inline-block; width: 50px; height: 50px;}
-	.ft-share-item .icon-wxhy{ background: url(common/img/wxhy.png) no-repeat; background-size: 50px 50px;}
-	.ft-share-item .icon-pyq{ background: url(common/img/pyq.png) no-repeat; background-size: 50px 50px;}
-	.ft-share-item .txt{ display: block; font-size: 14px;}
-    /* content */
-    .dpl-body{ width: 100%;  background:url(taiwan/img/bg.jpg) center bottom no-repeat; background-size: cover; background-attachment: fixed; }
-    .dpl-body:before { content: '';  position: fixed;  z-index: -1;  top: 0;  right: 0;  bottom: 0;  left: 0;  background: url(taiwan/img/bg.jpg) center 0 no-repeat;  background-size: cover;}
-    .dpl-wrapper{ position: relative; }
-    .dpl-container{ width: 100%; }
-    .dpl-container img{ width:100%; height: auto; vertical-align: middle; }
-    .dpl-banner {height: 14.4rem;}
-    .dpl-banner .dpl-logo{position: absolute; left:0.35rem; top: 0.4rem;}
-    .dpl-banner .dpl-logo .logo{ display: inline-block; width: 1.1rem; height: 1.43rem; background: url(common/img/logo.png); background-size: cover; }
-    .dpl-banner .dpl-topic{text-align: right;}
-    .dpl-banner .dpl-topic img{ width: 100%; height: auto;}
-    .dpl-btm{ padding-top: 2.8rem; }
-    .dpl-title{text-align: center; padding:.6rem 0;}
-    .dpl-title img{ width: 100%; }
-    .s-title{ text-align: center; padding-top: .5rem; }
-    .s-title span{ display: block; font-size: .48rem; color: #fff; line-height: .5rem; }
-    .s-title em{display: inline-block; height: 4px; border-top: 1px solid #fff; width: 1.5rem;}
-    .dpl-trip-title{padding:.5rem 0;}
-    .dpl-price-title{padding:.5rem 0 .2rem 0;}
-    .dpl-price-title .s-title{color: #1d467c;}
-    .dpl-price-title .s-title span{color: #1d467c;}
-    .dpl-price-title em{border-top-color:#1d467c}
-    .dpl-concept{ position: relative; background-color: #fff; }
-    .dpl-concept .concept-box{ position: relative;}
-	.dpl-concept .concept-box .icon-top{text-align: center; padding-top: 0.6rem; padding-bottom: .3rem;}
-	.dpl-concept .concept-box .icon-quate{ display: inline-block; width: 1.7rem; height: 0.8rem; background: url(taiwan/img/comma.png) center center no-repeat; background-size: 1.7rem 0.8rem ;}
-    .dpl-concept .concept-box .concept-text{ text-align: center; color: #696d7b; font-size: .28rem; line-height: 1.8; letter-spacing: 0.01rem; }
-	.dpl-concept .concept-box .concept-text p{ margin-bottom:0.3rem ;}
-	.dpl-concept .concept-box .line-box{ text-align: center;}
-	.dpl-concept .concept-box .line{ display: inline-block; width: 0.7rem; height: 0.1rem; border-bottom: 2px solid #8a999c;}
-    .dpl-highlights .dpl-title{background:rgba(0,0,0,.7); padding:.3rem 0; }
-    .dpl-hl-box{ background-color: #fff;  }
-    .dpl-hl-item{}
-	.dpl-hl-item .hl-img{width: 100%;}
-    .dpl-hl-item .hl-tit{padding-top: .7rem;}
-    .dpl-hl-item .hl-txt{ padding:.6rem .6rem .3rem .6rem; font-size: .28rem; line-height: 2;  text-indent: .56rem;  color: #696d7b; word-break: break-all; }
-    .dpl-hl-item .hl-txt p{ margin-bottom: .3rem;}
-    .dpl-hl-item .hl-slide-box{ padding-bottom:.8rem;}
-    .dpl-hl-item .hl-swiper{padding-left:.6rem;}
-    .dpl-hl-item .hl-swiper .swiper-slide{ width: 60%; }
-	.dpl-hl-item .hl-swiper .swp-img{ position: relative;}
-	.dpl-hl-item .hl-swiper .swp-img img{ border-radius: 0.15rem;}
-	.dpl-hl-item .hl-swiper .swp-img .img-txt{ display: inline-block; height: 0.36rem; position: absolute; left: 0.15rem; bottom: 0.15rem; border-radius: 0.18rem; background: rgba(0,0,0,.6); font-size: .24rem; color: #FFFFFF; padding:0 0.1rem;}
-    .dpl-trip{ background-color:rgba(0,0,0,.6); }
-    .dpl-trip-detail{padding-bottom: .3rem;}
-    .dpl-price-desc{ position: relative; background-color: #fff; }
-	.dpl-price-box{ padding:0 .4rem .6rem .4rem;text-align: center; }
-    .dpl-price-box .price-box{ text-align: center; color: #36ba6c; font-size: 0.5rem;}
-    .dpl-price-box .price-box .pr1{ display: inline-block;  font-style: italic; }
-    .dpl-price-box .price-box i{ font-size: 1rem;font-style: italic;}
-    .dpl-price-box .price-box dfn{font-size: 0.32rem;}
-    .dpl-price-box .pr2{text-align: center; font-size: 0.2rem;}
-	.space{width: 100%; height: 0.3rem; background: rgba(0,0,0,.6); font-size: 0; line-height: 0; overflow: hidden; }
-	.dpl-fees-desc{background: #FFFFFF; padding: 0.36rem;}
-	.dpl-desc-title{ padding: 0.3rem; text-align: center; font-size: 0.36rem; font-weight: bold; }
-	.dpl-fees-content{ background: #f5f5f5; padding: 0.3rem .15rem; position: relative; text-align: center;  -webkit-border-radius: 0.15rem; border-radius: 0.15rem; margin-bottom: 15px;}
-	.dpl-fees-content:before{display: inline-block; content: '';position: absolute;    width: 0px; height: 0px; line-height: 0px; border-bottom: 6px solid #f5f5f5; border-left: 6px solid #fff; border-right: 6px solid #fff; left: 50%; margin-left: -4px; top: -6px;}
-	.fees-list{ width: 100%; display: -webkit-box; display: -webkit-flex; display: flex; flex-wrap: wrap;}
-	.fees-item{ display: block; min-width: 1rem; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; padding:0.1rem 0; text-align: center; }
-	.fees-item .icon-fees{ display: inline-block; width: 0.6rem; height: 0.6rem; background: url(common/img/icon-price.png) no-repeat; background-size: 7.5rem .6rem;}
-	.fees-item .icon-flight{ background-position: 0 0;}
-	.fees-item .icon-hotel{ background-position: -1.5rem 0;}
-	.fees-item .icon-car{ background-position: -3.8rem 0;}
-	.fees-item .icon-accompany{ background-position: -6.08rem 0;}
-	.fees-item .icon-insurance{ background-position: -6.84rem 0;}
-	.fees-item .icon-ticket{ background-position: -.74rem 0;}
-	.fees-item .icon-visa{ background-position: -2.28rem 0;}
-	.fees-item .icon-food{ background-position: -3.02rem 0;}
-	.fees-item .icon-active{ background-position: -4.56rem 0;}
-	.fees-item .icon-tip{ background-position: -5.3rem 0;}
-	.fees-item .txt{display: block; font-size: .24rem; line-height: .28rem;}
-    .intro-case-container{ width: 100%; max-height: 100%; padding-bottom: 40px; padding-top: 30px;}
-    .intro-case-container .swiper-pagination-bullet{background: rgba(255,255,255,.5); }
-    .intro-case-container .swiper-pagination-bullet-active{background:rgba(224,151,45,.8);}
-    .intro-case-container.swiper-container-horizontal>.swiper-pagination .swiper-pagination-bullet{margin:0 3px;}
-    .intro-case-container .swiper-pagination-fraction{ display: inline-block; font-size: 14px; color: #fff; }
-    .intro-case-container .swiper-pagination-fraction .swiper-pagination-current{ font-weight: bold; }
-	.intro-case-container.swiper-container-horizontal>.swiper-scrollbar{ position: absolute; left: 10%; top: 0; z-index: 50; height: 2px; width: 80%;}
-	.intro-case-container .swiper-scrollbar{ background: rgba(255,255,255,.6);}
-	.intro-case-container .swiper-scrollbar-drag{background: rgba(255,255,255,1);}
-    .case-slide{ width: 80%; background: #FFFFFF;  -webkit-border-radius: 6px; border-radius: 6px; overflow: hidden; }
-    .case-slide.swiper-slide-active{opacity: 1;}
-    .slide-case{min-height: 6.8rem;}
-    .case-img{ position: relative; }
-    .case-img img{ width: 100%; height: auto; }
-    .case-img .case-day{ width: 1rem; height: .4rem; line-height: .4rem; position: absolute; left:.15rem; top: .15rem; background-color: #344b4e; color: #fff; font-size: .24rem; text-align: center; }
-    .case-img .case-city{ position: absolute; left: 0; bottom: .15rem; width: 100%; text-align: center; color: #fff; }
-    .case-title{ font-size: 0.16rem; line-height: 0.4rem; height: 0.4rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #333; padding:5px 15px;font-family: PingFangSC-Regular;}
-    .case-line{padding:.25rem 0 .15rem 0; text-align: center;}
-    .case-line-box{ overflow: hidden; text-align: center; display: inline-block; }
-    .case-line-box .line-item{ float: left; display: inline-block; font-size: .24rem; font-weight: bold; padding:0 .2rem; position: relative; }
-    .case-line-box .line-item .line-dot{ display: block; }
-    .case-line-box .line-item .line-dot .dot{ display: inline-block; width: .2rem; height: .2rem; border-radius: 50%; border:2px solid #3e3c40; background-color: #fff; }
-    .case-line-box .line-item .line-name{ font-size: .26rem; }
-    .case-desc{  padding:0 .3rem .3rem .3rem; }
-    .case-desc p{ font-size: .24rem; line-height: 0.4rem; }
-	
-</style>
-<script type="text/javascript">
-    (function() {
-        function refreshRem() {
-            var width = docEl.getBoundingClientRect().width;
-            rem = width / (BASE_WIDTH / ROOT_FONT_SIZE);
-            docEl.style.fontSize = rem + "px";
-        }
-        var tid = null, docEl = document.documentElement, BASE_WIDTH = 750, ROOT_FONT_SIZE = 100;
-        refreshRem();
-         window.addEventListener("resize", function() {
-            clearTimeout(tid);
-            tid = setTimeout(refreshRem, 300);
-        }, false);
-    })();
-</script>
-<script src="/statics/js/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>轻奢小团 | 轻奢游世界</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="statics/css/v2_app_base.css" />
+    <link rel="stylesheet" type="text/css" href="statics/css/fixline.css" />
 </head>
-<body class="dpl-body">
-    <div class="dpl-wrapper">
-        <!-- 底部固定浮动 -->
-        <div id="order_box" class="dpl-ft-bar">
-            <div id="order_box" class="dpl-ft-bar">
-                <div class="trip-route-footer">
-            		<a class="foot-item1 foot-tel lc-share">
-            			<i class="route-icons share"></i>
-            			<span class="txt">分享</span>
-            		</a>
-            		<div class="foot-item2">
-            			<a href="javascript:void(0);" class="route-btn-default lc-order"><i class="route-icons consult2"></i>免费咨询该行程</a>
-            		</div>
-            	</div>
-            </div>
-        </div>
-        <div class="dpl-container">
-            <!-- //头部Banner -->
-            <div class="dpl-banner">
-                <p class="dpl-logo"><span class="logo"></span></p>
-                <p class="dpl-topic"><img src="taiwan/img/topic.png"></p>
-            </div>
-            <!-- //设计理念 -->
-            <div class="dpl-concept">
-                <div class="concept-box">
-					<div class="icon-top">
-						<span class="icon-quate"></span>
-					</div>
-                    <div class="concept-text">
-                        <p>宝岛台湾<br>适合承载孩子的快乐时光</p>
-						<p>阿里山、日月潭、以及南投的山巅风光<br>堪比小瑞士</p>
-						<p>客家大院，古法蓝染，夜市和彩虹眷村<br>讲述着人文故事</p>
-						<p>城市中的台北动物园倡导回归自然<br>这就是台湾人的生活调调</p>
-						<p class="line-box"><span class="line"></span></p>
-					</div>
-					<div class="map">
-						<img src="taiwan/img/map.jpg" width="100%" >
-					</div>
-                </div>
-            </div>
-            <!-- //行程亮点 -->
-            <div class="dpl-highlights">
-                <div class="dpl-hl-box">
-                    <div class="dpl-hl-item">
-                        <div class="hl-img">
-                            <img src="taiwan/img/hl-1-1.jpg">
-                        </div>
-                        <div class="hl-txt">
-                        	<p>日月潭被誉为台湾八景之一，而观景方式的不同会让你看不一样的日月潭之美。</p>
-							<p>下榻始建于1916年的涵碧楼，设计遵循极简清幽的理念，细心之处在于每个房间都有不同的主题。面对群山环绕下的日月潭，美景与涵碧楼的极简禅意相得益彰。</p>
-							<p>特殊的生态环境让小孩子乐于天地间，发现各种漂亮的蝴蝶，萤火虫，独角仙，竹节虫等等，如今的城市里已经看不到这些自然代表了。</p>
-							<p>除了游船和轻徒步，骑行也是经典方式之一。环潭自行车道号称是全球10大最美单车道，随着行进中的角度变化，山峦倒映在水中的样子也随之变化，随走随停的欣赏方式让人止不住的兴奋。</p>
+<body class="fl-detail-body">
+	<section class="six-content">
+		<div class="line-pic">
+			<img src="http://cdn1.6renyou.cn/sight/2019_11_9_1573300584476956831.jpg@330w_70q" width="100%" height="auto" />
+		</div>
+		<div class="line-title">
+			<h1>火山与地热|萤火虫洞黑水漂流+怀奥塔普地地热公园+陶波湖</h1>
+		</div>
+		<div class="line-cost-box clearfix">
+			<div class="product-price"><dfn>￥</dfn><span class="num">5680</span><span class="unit">/人起</span></div>
+		</div>
+		<div class="line-info mb5">
+			<ul class="line-info-ul">
+				<li><span class="l-info-l">产品编号：</span>
+					<p class="l-info-d">100485</p>
+				</li>
+				<li><span class="l-info-l">目的地：</span>
+					<p class="l-info-d">印度</p>
+				</li>
+				<li><span class="l-info-l">行程天数：</span>
+					<p class="l-info-d">8天</p>
+				</li>
+				<li><span class="l-info-l">出发地：</span>
+					<p class="l-info-d">境外集合</p>
+				</li>
+				<li class="li-row"><span class="l-info-l">出发日期：</span>
+					<p class="l-info-d">12月11号 | 1月2号</p>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 设计师说 -->
+		<div class="content"  style="display: block;">
+			<div class="designer-box">
+				<div class="designer-bd">
+					<div class="desg-inf">
+						<div class="desg-img">
+							<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571883331639279317.jpg@80q">
 						</div>
-                        <div class="hl-slide-box">
-                            <div class="swiper-container hl-swiper">
-                                <div class="swiper-wrapper">
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-1-2.jpg" alt=""><span class="img-txt">日月潭</span></div></div>
-                                    <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-1-3.jpg" alt=""><span class="img-txt">涵碧楼</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-1-5.jpg" alt=""><span class="img-txt">独角仙</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-1-6.jpg" alt=""><span class="img-txt">矮锹形虫</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-1-8.jpg" alt=""><span class="img-txt">环潭自行车</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-1-7.jpg" alt=""><span class="img-txt">环潭公路</span></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					<div class="dpl-hl-item">
-					    <div class="hl-img">
-					        <img src="taiwan/img/hl-2-1.jpg">
-					    </div>
-					    <div class="hl-txt">
-					    	<p>阿里山是台湾的一个标签，除了茶园、少数民族和山林，当地人早就在山脉中建立起各种设施，让深山美的一切都可以展示在世人面前。</p>
-							<p>您乘火车穿越阿里山是经典方式之一，也是让孩子保持体力欣赏山景的理想方式。阿里山森林铁路是当今世界三大登山铁路之一。火车从嘉义开始，全长70多公里，在阿里山段乘小火车，沿途可以观赏到杉木林和奋起湖附近的复古老街。之后的游玩再换乘公交等方式。</p>
-							<p>而有关阿里山的5大景之中，日出，云海，晚霞，森林和神木与铁道是否可以看全，就要看您的运气了。</p>
-					    </div>
-					    <div class="hl-slide-box">
-					        <div class="swiper-container hl-swiper">
-					            <div class="swiper-wrapper">
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-2.jpg" alt=""><span class="img-txt">阿里山火车</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-3.jpg" alt=""><span class="img-txt">绿色隧道</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-4.jpg" alt=""><span class="img-txt">萤火虫</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-5.jpg" alt=""><span class="img-txt">萤火虫</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-6.jpg" alt=""><span class="img-txt">阿里山</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-7.jpg" alt=""><span class="img-txt">阿里山日出</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-8.jpg" alt=""><span class="img-txt">阿里山茶园</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-2-9.jpg" alt=""><span class="img-txt">茶园品茶</span></div></div>
-					            </div>
-					        </div>
-					    </div>
+						<h2><span>Tino</span></h2>
+						<p>线路设计师</p>
 					</div>
-					<div class="dpl-hl-item">
-					    <div class="hl-img">
-					        <img src="taiwan/img/hl-3-1.jpg">
-					    </div>
-					    <div class="hl-txt">
-					    	<p>安静的自然环境，更容易让孩子沉淀心神专注做事，也适合体验古法蓝染的意境美。</p>
-							<p>苗栗的卓也小屋由热爱自然的一家人建立，家里有空间艺术家和竹艺大师。在一块田地上打造出民宿，并且自己种植蓝草，成功还原了古法蓝染的技艺，您和孩子可以在指导下制作蓝染布艺，更真实的体会原生态与生活之美。</p>
-							<p>自己动手丰衣足食，好吃的台湾凤梨酥也可以自己做。在新北的维格饼家梦工厂，寓意好运的凤梨在这里得到了极大的尊重，整个梦工厂像是一个凤梨主题乐园，除了生产流程参观，孩子自己制作凤梨酥时会有专业烘焙师指导，从此在孩子的记忆里，凤梨一定是代表幸福快乐的吉祥美味。</p>
-					    </div>
-					    <div class="hl-slide-box">
-					        <div class="swiper-container hl-swiper">
-					            <div class="swiper-wrapper">
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-3-3.jpg" alt=""><span class="img-txt">制作蓝染布艺</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-3-4.jpg" alt=""><span class="img-txt">制作蓝染布艺</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-3-2.jpg" alt=""><span class="img-txt">蓝染布艺</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-3-5.jpg" alt=""><span class="img-txt">维格饼家梦工厂</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-3-6.jpg" alt=""><span class="img-txt">凤梨酥</span></div></div>
-					            </div>
-					        </div>
-					    </div>
+					<div class="desg-text">
+						<p>夏天是玩水好时节，池塘、小溪、庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节，池塘小溪。庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节，池塘、小溪</p>
 					</div>
-					<div class="dpl-hl-item">
-					    <div class="hl-img">
-					        <img src="taiwan/img/hl-4-1.jpg">
-					    </div>
-					    <div class="hl-txt">
-					    	<p>台湾中部的山巅海拔并不高，却有着堪比瑞士的景色风光。草甸，蓝天，冬日里的雪山，景观一个都不少。</p>
-							<p>清境农场是台湾唯一的高山农场，草甸适合放牧，一片田园风光可以体验到风吹草地现牛羊的意境，又因地处深山之巅，风景独好，因此取名清境。</p>
-							<p>小孩子在这里高兴，尤其是看到剪羊毛秀和马术表演。又或者带着孩子走一走山脊上的步道，被高海拔的青青草原和远处的起伏山峦所包围，在孩子的幼小心灵中会认识到这才是城市之外真实自然的模样。</p>
-						</div>
-					    <div class="hl-slide-box">
-					        <div class="swiper-container hl-swiper">
-					            <div class="swiper-wrapper">
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-2.jpg" alt=""><span class="img-txt">剪羊毛秀</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-3.jpg" alt=""><span class="img-txt">山羊</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-4.jpg" alt=""><span class="img-txt">清境农场</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-5.jpg" alt=""><span class="img-txt">清境农场</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-6.jpg" alt=""><span class="img-txt">清境农场</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-7.jpg" alt=""><span class="img-txt">马术表演</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-4-8.jpg" alt=""><span class="img-txt">马术表演</span></div></div>
-					            </div>
-					        </div>
-					    </div>
-					</div>
-					<div class="dpl-hl-item">
-					    <div class="hl-img">
-					        <img src="taiwan/img/hl-5-1.jpg">
-					    </div>
-					    <div class="hl-txt">
-					    	<p>除了逛夜市可以和摊贩老板交流快乐吃喝，在云林的彩虹眷村，或许你和孩子都会因一位老人充满童趣的作品被逗乐和感动。</p>
-							<p>眷村是指1949年至1960年代，为了安排被迫自中国大陆各省迁徙至台湾的国民党军及其眷属所兴建的房舍。黄永阜老人就是经历过这一切的退伍老兵，他晚年闲来无事，86岁的时候开始在村里的房屋墙壁上作画，于是成就了一个彩虹眷村。</p>
-							<p>如果你看到那些古怪的画作，你会感叹时代耽误了一位好画家。孩子的喜好是不会骗人的，满街满巷的小人形象或稀奇符号似乎是和孩子交流的特殊语言，在成人的眼中，这样的画作和街巷的历史相结合，别有一番滋味。</p>
-					    </div>
-					    <div class="hl-slide-box">
-					        <div class="swiper-container hl-swiper">
-					            <div class="swiper-wrapper">
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-5-2.jpg" alt=""><span class="img-txt">彩虹眷村</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-5-3.jpg" alt=""><span class="img-txt">彩虹眷村</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-5-4.jpg" alt=""><span class="img-txt">彩虹眷村</span></div></div>
-					            </div>
-					        </div>
-					    </div>
-					</div>
-					<div class="dpl-hl-item">
-					    <div class="hl-img">
-					        <img src="taiwan/img/hl-6-1.jpg">
-					    </div>
-					    <div class="hl-txt">
-					    	<p>在台北能让孩子乐此不疲的，必定是猫空缆车的水晶车厢和台北市立动物园。</p>
-							<p>猫空缆车的水晶车厢采用透明地板，从高处俯瞰茶园美景，以及动物园里的动物实况，甚至于还能在车厢内听到动物的鸣叫。</p>
-							<p>台北市立动物园的丰富程度让人很难在一天内逛完。但是对于孩子来说，这里的儿童动物园区就是孩子们的天堂。</p>
-							<p>儿童园区营造了湿地和野郊的自然景观，串联农村动物、经济型动物、宠物和入侵的外来物种等元素，让孩子和成年人之间可以更好地互动来了解自然。</p>
-					    </div>
-					    <div class="hl-slide-box">
-					        <div class="swiper-container hl-swiper">
-					            <div class="swiper-wrapper">
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-6-3.jpg" alt=""><span class="img-txt">绿丝冠僧帽</span></div></div>
-					                <div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-6-4.jpg" alt=""><span class="img-txt">长臂猿</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-6-6.jpg" alt=""><span class="img-txt">大象</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-6-5.jpg" alt=""><span class="img-txt">羊驼</span></div></div>
-									<div class="swiper-slide"><div class="swp-img"><img src="taiwan/img/hl-6-2.jpg" alt=""><span class="img-txt">穿山甲宝宝</span></div></div>
-					            </div>
-					        </div>
-					    </div>
-					</div>
-                </div>
-            </div>
-            <!-- //参考行程 -->
-            <div class="dpl-trip">
-                <div class="dpl-title dpl-trip-title">
-                    <img src="common/img/title-trip.png"/>
-                </div>
-                <div class="dpl-trip-detail">
-                    <div class="swiper-container intro-case-container">
-                        <div class="swiper-wrapper intro-case-wrapper">
-                            <div class="swiper-slide case-slide">
-                                <div class="slide-case">
-                                    <div class="case-img">
-                                        <span class="case-day">DAY1</span>
-                                        <img src="taiwan/img/day1.jpg" alt="">
-                                    </div>
-                                    <div class="case-line">
-                                        <div class="case-line-box">
-                                            <div class="line-item">
-                                                <span class="line-dot"><i class="dot"></i></span>
-                                                <span class="line-name">台北 - 苗栗</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="case-desc">
-                                        <p><strong>上午：</strong>苗栗客家大院</p>
-										<p><strong>下午：</strong>卓也小屋蓝染制作体验</p>
-										<p><strong>住宿：</strong>卓也小屋民宿</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide case-slide day2">
-                                <div class="slide-case">
-                                    <div class="case-img">
-                                        <span class="case-day">DAY2</span>
-                                        <img src="taiwan/img/day2.jpg" alt="">
-                                    </div>
-                                    <div class="case-line">
-                                        <div class="case-line-box">
-                                            <div class="line-item">
-                                                <span class="line-dot"><i class="dot"></i></span>
-                                                <span class="line-name">苗栗 - 南投</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="case-desc">
-                                        <p><strong>上午：</strong>台湾自然科学博物馆</p>
-										<p><strong>下午：</strong>日月潭骑行</p>
-										<p><strong>住宿：</strong>涵碧楼大饭店</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide case-slide">
-                                <div class="slide-case">
-                                    <div class="case-img">
-                                        <span class="case-day">DAY3</span>
-                                        <img src="taiwan/img/day3.jpg" alt="">
-                                    </div>
-                                    <div class="case-line">
-                                        <div class="case-line-box">
-                                            <div class="line-item">
-                                                <span class="line-dot"><i class="dot"></i></span>
-                                                <span class="line-name">南投</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="case-desc">
-                                        <p><strong>上午：</strong>清境农场</p>
-										<p><strong>下午：</strong>南投浦里滑翔伞</p>
-										<p><strong>住宿：</strong>涵碧楼大饭店</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide case-slide">
-                                <div class="slide-case">
-                                    <div class="case-img">
-                                        <span class="case-day">DAY4</span>
-                                        <img src="taiwan/img/day4.jpg" alt="">
-                                    </div>
-                                    <div class="case-line">
-                                        <div class="case-line-box">
-                                            <div class="line-item">
-                                                <span class="line-dot"><i class="dot"></i></span>
-                                                <span class="line-name">南投 - 云林</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="case-desc">
-                                        <p><strong>上午：</strong>乘坐小火车游览阿里山</p>
-										<p><strong>下午：</strong>前往云林</p>
-										<p><strong>住宿：</strong>剑湖山度假大饭店</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide case-slide">
-                                <div class="slide-case">
-                                    <div class="case-img">
-                                        <span class="case-day">DAY5</span>
-                                        <img src="taiwan/img/day5.jpg" alt="">
-                                    </div>
-                                    <div class="case-line">
-                                        <div class="case-line-box">
-                                            <div class="line-item">
-                                                <span class="line-dot"><i class="dot"></i></span>
-                                                <span class="line-name">云林</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="case-desc">
-                                        <p><strong>上午：</strong>剑湖山主题游乐园</p>
-										<p><strong>傍晚：</strong>斗南夜市</p>
-										<p><strong>住宿：</strong>剑湖山度假大饭店</p>
-                                    </div>
-                                </div>
-                            </div>
-							<div class="swiper-slide case-slide">
-							    <div class="slide-case">
-							        <div class="case-img">
-							            <span class="case-day">DAY6</span>
-							            <img src="taiwan/img/day6.jpg" alt="">
-							        </div>
-							        <div class="case-line">
-							            <div class="case-line-box">
-							                <div class="line-item">
-							                    <span class="line-dot"><i class="dot"></i></span>
-							                    <span class="line-name">云林 - 台北</span>
-							                </div>
-							            </div>
-							        </div>
-							        <div class="case-desc">
-							            <p><strong>上午：</strong>云林故事馆，彩虹眷村</p>
-							            <p><strong>下午：</strong>凤梨酥DIY制作</p>
-							            <p><strong>住宿：</strong>台北大仓久和大饭店</p>
-							        </div>
-							    </div>
-							</div>
-							<div class="swiper-slide case-slide">
-							    <div class="slide-case">
-							        <div class="case-img">
-							            <span class="case-day">DAY7</span>
-							            <img src="taiwan/img/day7.jpg" alt="">
-							        </div>
-							        <div class="case-line">
-							            <div class="case-line-box">
-							                <div class="line-item">
-							                    <span class="line-dot"><i class="dot"></i></span>
-							                    <span class="line-name">台北</span>
-							                </div>
-							            </div>
-							        </div>
-							        <div class="case-desc">
-							            <p><strong>上午：</strong>台北市立动物园，猫空缆车</p>
-							            <p><strong>下午：</strong>台北101大楼</p>
-							            <p><strong>住宿：</strong>台北大仓久和大饭店</p>
-							        </div>
-							    </div>
-							</div>
-							<div class="swiper-slide case-slide">
-							    <div class="slide-case">
-							        <div class="case-img">
-							            <span class="case-day">DAY8</span>
-							            <img src="taiwan/img/day8.jpg" alt="">
-							        </div>
-							        <div class="case-line">
-							            <div class="case-line-box">
-							                <div class="line-item">
-							                    <span class="line-dot"><i class="dot"></i></span>
-							                    <span class="line-name">台北</span>
-							                </div>
-							            </div>
-							        </div>
-							        <div class="case-desc">
-							            <p><strong>上午：</strong>结束愉快的旅行</p>
-							        </div>
-							    </div>
-							</div>
-                        </div>
-                        <!-- 分页器 -->
-                        <div class="swiper-pagination"></div>
-						<div class="swiper-scrollbar"></div>
-                    </div>
-                </div>
-            </div>
-			<!-- //价格说明 -->
-            <div class="dpl-price-desc">
-                <div class="dpl-title dpl-price-title">
-                    <img src="common/img/title-price.png"/>
-                </div>
-                <div class="dpl-price-box">
-					<div class="price-box">
-						<span class="pr1"><dfn>￥</dfn> <i>4.8</i>万/人</span>
-					</div>
-					<p class="pr2">*该价格为6人定制参考价格<br>最终价格以实际出行人数为准</p>
-                </div>
-            </div>
-			<div class="space"></div>
-			<div class="dpl-fees-desc">
-				<div class="dpl-desc-title">
-					<span>价格包含</span>
-				</div>
-				<div class="dpl-fees-content">
-					<ul class="fees-list">
-						<li class="fees-item"><span class="icon-fees icon-flight"></span><span class="txt">机票</span></li>
-						<li class="fees-item"><span class="icon-fees icon-hotel"></span><span class="txt">酒店</span></li>
-						<li class="fees-item"><span class="icon-fees icon-car"></span><span class="txt">用车</span></li>
-						<li class="fees-item"><span class="icon-fees icon-accompany"></span><span class="txt">陪同人员</span></li>
-					</ul>
-				</div>
-				<div class="dpl-desc-title">
-					<span>价格不含</span>
-				</div>
-				<div class="dpl-fees-content">
-					<p>正餐及其他未提及的个人消费</p>
 				</div>
 			</div>
-            <div class="dpl-footer">
-                <p>以上产品最终解释权归6人游所有</p>
-                <span class="dpl-footer-label"></span>
-            </div>
-        </div>
-		<!-- 分享弹层 -->
-        <div id="common_share_layer" class="ft-actionsheet show" style="display: none;">
-            <div class="ft-actionsheet-cnt">
-                <h4>- 分享到 -</h4>
-				<div class="ft-share-box">
-					<ul class="ft-share-list">
-						<li class="ft-share-item"><div class="lc-friend"><span class="lc-icon icon-wxhy"></span><span class="txt">微信好友</span></div></li>
-						<li class="ft-share-item"><div class="lc-group"><span class="lc-icon icon-pyq"></span><span class="txt">朋友圈</span></div></li>
+		</div><!-- 设计师说 end -->
+
+		<!--行程亮点 start-->
+		<div class="content">
+			<div class="content-title"><span>行程亮点</span></div>
+			<div class="content-cont">
+				<div class="highlight-box">
+					<p>观看恒河夜祭——普伽（puja），见证印度延续千年的祭典</p>
+					<p>乘坐阿格兰-瓦拉纳西最高级别的2AC卧铺车厢，来场特别的印度火车之旅</p>
+					<p>作为瑜伽的发源地，在专业老师的带领下，来一场纯粹的瑜伽修行</p>
+				</div>
+			</div>
+		</div>
+		<!--行程亮点 end-->
+		<!-- 出行价格 -->
+		<div class="content">
+			<div class="content-title"><span>出行价格</span></div>
+			<div class="content-cont">
+				<div class="cont-detail">
+					<div class="calender-box">
+						<div class="calender-tab">
+							<ul class="calender-tab-list">
+								<li class="tab-on">2020年1月</li>
+								<li >2020年2月</li>
+								<li >2020年3月</li>
+							</ul>
+						</div>
+						<div class="calender-table-box">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" class="calender-table">
+								<tbody>
+									<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr>
+									<tr><td><div class="col"><span class="day-num"></span></div></td><td><div class="col"><span class="day-num"></span></div></td><td><div class="col"><span class="day-num"></span></div></td><td><div class="col col-day pop-window"><span class="day-num">1</span><div class="day-price">￥13600</div></div></td><td><div class="col col-day pop-window"><span class="day-num">2</span><div class="day-price">￥13600</div></div></td><td><div class="col"><span class="day-num">3</span></div></td><td><div class="col"><span class="day-num">4</span></div></td></tr><tr><td><div class="col"><span class="day-num">5</span></div></td><td><div class="col"><span class="day-num">6</span></div></td><td><div class="col"><span class="day-num">7</span></div></td><td><div class="col"><span class="day-num">8</span></div></td><td><div class="col"><span class="day-num">9</span></div></td><td><div class="col"><span class="day-num">10</span></div></td><td><div class="col"><span class="day-num">11</span></div></td></tr><tr><td><div class="col"><span class="day-num">12</span></div></td><td><div class="col"><span class="day-num">13</span></div></td><td><div class="col"><span class="day-num">14</span></div></td><td><div class="col"><span class="day-num">15</span></div></td><td><div class="col"><span class="day-num">16</span></div></td><td><div class="col col-day pop-window"><span class="day-num">17</span><div class="day-price">￥13600</div></div></td><td><div class="col"><span class="day-num">18</span></div></td></tr><tr><td><div class="col"><span class="day-num">19</span></div></td><td><div class="col"><span class="day-num">20</span></div></td><td><div class="col"><span class="day-num">21</span></div></td><td><div class="col"><span class="day-num">22</span></div></td><td><div class="col"><span class="day-num">23</span></div></td><td><div class="col col-day pop-window" onclick="select_calender_date(this,'4323','2020-1-24')"><span class="day-num">24</span><div class="day-price">￥8600</div></div></td><td><div class="col"><span class="day-num">25</span></div></td></tr><tr><td><div class="col"><span class="day-num">26</span></div></td><td><div class="col"><span class="day-num">27</span></div></td><td><div class="col"><span class="day-num">28</span></div></td><td><div class="col"><span class="day-num">29</span></div></td><td><div class="col"><span class="day-num">30</span></div></td><td><div class="col"><span class="day-num">31</span></div></td><td><div class="col"><span class="day-num"></span></div></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 概要一 -->
+		<div class="content">
+			<div class="content-title"><span>当地特色</span></div>
+			<div class="content-cont">
+				<div class="cont-detail">
+					<div class="detial-txt mb10">
+						夏天是玩水好时节，池塘、小溪、庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节，池塘、小溪，庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节
+					</div>
+					<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" />
+				</div>
+			</div>
+		</div>
+		<!-- 概要一 End-->
+		<!-- 自由一 -->
+		<div class="content">
+			<div class="content-title"><span>当地特色</span></div>
+			<div class="content-cont">
+				<div class="cont-detail">
+					<div class="free-title">
+						<span>自由一的二级一</span>
+					</div>
+					<div class="free-cont">
+						<div class="detial-txt">
+							夏天是玩水好时节，池塘、小溪、庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节，池塘、小溪，庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节
+						</div>
+						<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" />
+						<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" />
+					</div>
+				</div>
+				<div class="cont-detail">
+					<div class="free-title">
+						<span>自由一的二级一</span>
+					</div>
+					<div class="free-cont">
+						<div class="detial-txt">
+							夏天是玩水好时节，池塘、小溪、庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节，池塘、小溪，庄园里有很多玩水的地方，可以释放孩子夏天是玩水好时节
+						</div>
+						<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 自由一 End-->
+		<!-- 线路行程 -->
+		<div class="content">
+			<div class="content-title"><span>线路行程</span></div>
+			<div class="content-cont">
+				<div class="cont-detail">
+					<div class="day-box">
+						<div class="day-item">
+							<div class="day-title">
+								<span class="day-num">DAY1</span>
+								<div class="day-line">全国各地-新德里</div>
+							</div>
+							<div class="day-cont">
+								<div class="detial-txt mb10">早餐后，开始今天吴哥大圈的游览，依次游览圣剑寺、塔逊寺、东梅奔寺、比粒寺、皇家浴池、斑黛喀蒂寺和塔布笼寺，有导游细致的为您讲解每一座寺庙的历史背景和故事，身临其境的感受高棉文化的伟大。</div>
+								<div class="day-other">
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-traffic"></i>交通</div>
+										<div class="other-content">专属用车</div>
+									</div>
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-meal"></i>餐食</div>
+										<div class="other-content">
+											<p>早餐 - 酒店用餐</p>
+											<p>午餐 - 中式用餐</p>
+											<p>晚餐 - 当地特色</p>
+										</div>
+									</div>
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-hotel"></i>住宿</div>
+										<div class="other-content"> D吴哥王子酒店</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="day-item">
+							<div class="day-title">
+								<span class="day-num">DAY2</span>
+								<div class="day-line">新德里 - 斋普尔</div>
+							</div>
+							<div class="day-cont">
+								<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571909270364937128.jpg" />
+								<div class="legend-box"><span class="img-legend">塔兰吉雷国家公园</span></div>
+								<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571907223366875962.jpg" />
+								<div class="legend-box"><span class="img-legend">塔兰吉雷国家公园的猴面包树</span></div>
+								<div class="detial-txt mb10">早餐后，从德里出发，专属车导带您前往斋普尔，车程大约5-6小时左右，抵达后参观著名的琥珀堡，我们特别为您安排骑象登琥珀堡，体验古时印度皇室的待遇。琥珀堡旁边就是梯田水井，带您领略古印度人的鬼斧神工。</div>
+								<div class="day-other">
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-traffic"></i>交通</div>
+										<div class="other-content">专属用车</div>
+									</div>
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-meal"></i>餐食</div>
+										<div class="other-content">
+											<p>早餐 - 酒店用餐</p>
+											<p>午餐 - 中式用餐</p>
+											<p>晚餐 - 当地特色</p>
+										</div>
+									</div>
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-hotel"></i>住宿</div>
+										<div class="other-content"> D吴哥王子酒店</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="day-item">
+							<div class="day-title">
+								<span class="day-num">DAY3</span>
+								<div class="day-line">阿格拉 - 瓦拉纳西</div>
+							</div>
+							<div class="day-cont">
+								<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571909270364937128.jpg" />
+								<div class="legend-box"><span class="img-legend">塔兰吉雷国家公园</span></div>
+								<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571907223366875962.jpg" />
+								<div class="legend-box"><span class="img-legend">塔兰吉雷国家公园</span></div>
+								<div class="detial-txt mb10">早餐后，专属车导带您去到印度最伟大的建筑泰姬陵参观，泰姬陵旁边就是【阿格拉堡】也非常宏伟壮观。<br>
+								<br>
+								晚上准备搭乘过夜卧铺火车去往瓦拉纳西，来印度坐火车，是一场最好不过的体验了吧（给您选择2AC级别的卧铺，是阿格拉去瓦拉纳西火车里的最高等级舱型，形式类似于国内的软卧，虽然设备老旧，但是干净卫生）<br>
+								<br>
+								Tips：我们会赠送团中的女士每人一身纱丽（印度女性传统服饰），穿着红色的纱丽去泰姬陵拍照最美不过了。</div>
+								<div class="day-other">
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-traffic"></i>交通</div>
+										<div class="other-content">专属用车</div>
+									</div>
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-meal"></i>餐食</div>
+										<div class="other-content">
+											<p>早餐 - 酒店用餐</p>
+											<p>午餐 - 中式用餐</p>
+											<p>晚餐 - 当地特色</p>
+										</div>
+									</div>
+									<div class="other-box">
+										<div class="other-subtitle"><i class="icon-other icon-hotel"></i>住宿</div>
+										<div class="other-content"> D吴哥王子酒店</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 线路行程 End-->
+		<!-- 自由区块 -->
+		<div class="content free-content">
+			<div class="content-title"><span>费用说明</span></div>
+			<div class="content-cont">
+				<div class="cont-detail mb5">
+					<div class="free-title">
+						<span>费用包含</span>
+					</div>
+					<div class="free-cont">
+						<div class="detial-txt mb10">酒店：全程当地五星级别酒店，含早；<br />
+							车辆：行程期间当地旅游专车+专职司机（当地9+1座旅游用车，小费补助已含）；<br />
+							导游：行程期间当地专业中文导游服务（小费补助已含）<br />
+							门票：行程中推荐的景点首道门票及活动费用 ；<br />
+							保险：赠送旅游意外保险。
+						</div>
+					</div>
+				</div>
+				<div class="cont-detail mb5">
+					<div class="free-title">
+						<span>费用不包含</span>
+					</div>
+					<div class="free-cont">
+						<div class="detial-txt mb10">印度签证；<br />
+							国际往返机票；<br />
+							护照费用；<br />
+							游览中另行付费的项目；<br />
+							客人在酒店内洗衣、理发、电话、传真、饮料、烟酒、付费电视、行李搬运等个人消费；<br />
+							客人支付给酒店内给服务生的各项小费；<br />
+							行程单中敬请自理的用餐（客人可自选饭店单点用餐，费用当场现付）；<br />
+							费用包含中未提及的收费景点门票；<br />
+							个别景点要求雇佣的官方导游费用；<br />
+							客人的境外购物消费；<br />
+							客人因违约、自身过错、自由活动期间内行为或自身疾病引起得人身和财产损失；<br />
+							费用包含中未提及的一切费用。
+						</div>
+					</div>
+				</div>
+				<div class="cont-detail mb5">
+					<div class="free-title">
+						<span>报价说明</span>
+					</div>
+					<div class="free-cont">
+						<div class="detial-txt mb10">关于正餐：行程内正餐费用暂未包含，当地司陪人员会根据您的喜好推荐餐厅或您自行选择餐厅；<br />
+							关于讲解：随团陪同导游会承担部分景点简单讲解的工作，个别景点按照规定需要安排景区内导游进行专业讲解（费用已含）。<br />
+							工作时间：当地司机兼陪同的工作时间是每天11小时（早8点-晚19点，如需安排日出或者日落等超时服务，需与导游协商安排，如超时需支付加班费用。参考230元/小时，以上价格仅供参考，具体已当地协商为准。<br />
+							关于酒店：酒店房间不保证床型，如需大床或双床可提前沟通申请，但已实际取房为准。<br />
+							保险说明：赠送PICC中国人民保险（或同类）旅游人身意外险基本保障，你可以根据自身实际情况自行选择和购买其他旅行意外伤害保险。旅游意外伤害险或救援险承保范围不包括以下情况，请游客购买前咨询相关保险公司： <br />
+							（1）游客自身带有的慢性疾病，既往疾病； <br />
+							（2）参加保险公司认定的高风险项目如跳伞、滑雪、潜水等；<br />
+							（3）妊振、流产等保险公司规定的责任免除项目。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 自由区块 End-->
+		<!-- 出行价格 -->
+		<div class="content">
+			<div class="content-title"><span>出行价格</span></div>
+			<div class="content-cont">
+				<div class="cont-detail">
+					<div class="calender-box">
+						<div class="calender-tab">
+							<ul class="calender-tab-list">
+								<li class="tab-on">2020年1月</li>
+								<li >2020年2月</li>
+								<li >2020年4月</li>
+							</ul>
+						</div>
+						<div class="calender-table-box">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" class="calender-table">
+								<tbody>
+									<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr>
+									<tr><td><div class="col"><span class="day-num"></span></div></td><td><div class="col"><span class="day-num"></span></div></td><td><div class="col"><span class="day-num"></span></div></td><td><div class="col col-day pop-window"><span class="day-num">1</span><div class="day-price">￥13600</div></div></td><td><div class="col col-day pop-window"><span class="day-num">2</span><div class="day-price">￥13600</div></div></td><td><div class="col"><span class="day-num">3</span></div></td><td><div class="col"><span class="day-num">4</span></div></td></tr><tr><td><div class="col"><span class="day-num">5</span></div></td><td><div class="col"><span class="day-num">6</span></div></td><td><div class="col"><span class="day-num">7</span></div></td><td><div class="col"><span class="day-num">8</span></div></td><td><div class="col"><span class="day-num">9</span></div></td><td><div class="col"><span class="day-num">10</span></div></td><td><div class="col"><span class="day-num">11</span></div></td></tr><tr><td><div class="col"><span class="day-num">12</span></div></td><td><div class="col"><span class="day-num">13</span></div></td><td><div class="col"><span class="day-num">14</span></div></td><td><div class="col"><span class="day-num">15</span></div></td><td><div class="col"><span class="day-num">16</span></div></td><td><div class="col col-day pop-window"><span class="day-num">17</span><div class="day-price">￥13600</div></div></td><td><div class="col"><span class="day-num">18</span></div></td></tr><tr><td><div class="col"><span class="day-num">19</span></div></td><td><div class="col"><span class="day-num">20</span></div></td><td><div class="col"><span class="day-num">21</span></div></td><td><div class="col"><span class="day-num">22</span></div></td><td><div class="col"><span class="day-num">23</span></div></td><td><div class="col col-day pop-window" onclick="select_calender_date(this,'4323','2020-1-24')"><span class="day-num">24</span><div class="day-price">￥8600</div></div></td><td><div class="col"><span class="day-num">25</span></div></td></tr><tr><td><div class="col"><span class="day-num">26</span></div></td><td><div class="col"><span class="day-num">27</span></div></td><td><div class="col"><span class="day-num">28</span></div></td><td><div class="col"><span class="day-num">29</span></div></td><td><div class="col"><span class="day-num">30</span></div></td><td><div class="col"><span class="day-num">31</span></div></td><td><div class="col"><span class="day-num"></span></div></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 出行价格 End-->
+		<!-- 感兴趣 -->
+		<div class="content free-content">
+			<div class="content-title">为你推荐</div>
+			<div class="">
+				<div class="line-box">
+					<ul class="line-list clearfix">
+						<li>
+							<div class="line-pic">
+								<div class="line-img">
+									<a href="/xianlu/100484" target="_blank" class="pic"><img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" /></a>
+								</div>
+								<h2><a href="/xianlu/100484" target="_blank">探索古文明|埃及+迪拜10天7晚之旅</a></h2>
+								<div class="dw">
+									<span class="off-cost">￥<i>24777</i><em>人起</em></span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="line-pic">
+								<div class="line-img">
+									<a href="/xianlu/100484" target="_blank" class="pic"><img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" /></a>
+								</div>
+								<h2><a href="/xianlu/100484" target="_blank">北海道私家雪场·避世温泉</a></h2>
+								<div class="dw">
+									<span class="off-cost">￥<i>24777</i><em>人起</em></span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="line-pic">
+								<div class="line-img">
+									<a href="/xianlu/100484" target="_blank" class="pic"><img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882798171154298.jpg" /></a>
+								</div>
+								<h2><a href="/xianlu/100484" target="_blank">芬兰+爱沙尼亚 踏雪追绚彩极光</a></h2>
+								<div class="dw">
+									<span class="off-cost">￥<i>24777</i><em>人起</em></span>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</div>
-                <button class="lc-cancel">取消</button>
-            </div>
-        </div>
-    </div>
-    <script src="common/js/swiper.min.js"></script>
-    <script>
-        var swiper = new Swiper('.intro-case-container', {
-            pagination: '.swiper-pagination',
-            paginationType: 'fraction',
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            paginationClickable: true,
-            spaceBetween: 15,
-			scrollbar:'.swiper-scrollbar',
-			scrollbarHide:false
-        });
-        var hlSwiper = new Swiper('.hl-swiper', {
-            slidesPerView: 'auto',
-            spaceBetween: 15,
-			//centeredSlides: true,
-			lazyLoading:false
-        });
-    </script>
-    <script src="/statics/app/scheme/js/common_detail.js?v=20190711" type="text/javascript"></script>
+			</div>
+		</div>
+		<!-- 感兴趣 End-->
+		<!-- foot-->
+		<div class="fl-bottom">
+			<span class="icon-fl-btm"></span>
+		</div>
+		<!-- foot End-->
+		<div class="trip-route-topbar" style="display: block;">
+			<ul class="topbar-list">
+				<li class="topbar-item"><span>当地特色</span></li>
+				<li class="topbar-item active"><span>行程详情</span></li>
+				<li class="topbar-item"><span>费用说明</span></li>
+			</ul>
+		</div>
+	</section>
+	<div class="trip-route-footer">
+		<!-- <div class="foot-item1 foot-tel">
+			<i class="route-icons share"></i>
+			<span class="txt">分享</span>
+		</div> -->
+		<div class="foot-item1 foot-consult">
+			<i class="route-icons consult"></i>
+			<span class="txt">咨询</span>
+		</div>
+		<div class="foot-item2">
+			<a href="booking.html" class="route-btn-default">马上预订</a>
+		</div>
+	</div>
+	
+	<!-- 分享 pop -->
+	<div id="common_share_layer" class="ft-actionsheet show" style="display: none;">
+		<div class="ft-actionsheet-cnt">
+			<h4>- 分享到 -</h4>
+			<div class="ft-share-box">
+				<ul class="ft-share-list">
+					<li class="ft-share-item"><div class="lc-friend"><span class="lc-icon icon-wxhy"></span><span class="txt">微信好友</span></div></li>
+					<li class="ft-share-item"><div class="lc-group"><span class="lc-icon icon-pyq"></span><span class="txt">朋友圈</span></div></li>
+				</ul>
+			</div>
+			<button class="lc-cancel" >取消</button>
+		</div>
+	</div>
+	<!-- 咨询 pop -->
+	<div class="layer-wrap" style="display:none; ">
+	        <div class="layer-bg"></div>
+	        <div class="layer-box">
+	            <div class="layer-inner">
+	            	<div id="qrcode_box" class="group-code-box clearfix">
+	            		<p class="f-p-1">长按识别二维码</p>
+	            		<p class="f-p-2">免费咨询专属旅行顾问</p>
+	            		<div class="code-box">
+	            			<img src="http://cdn1.6renyou.cn/sight/2019_10_24_1571882700914776077.jpg@80q" width="100%">
+	            		</div>
+	            	</div>
+	            </div>
+				<div class="layer-close-box">
+					<span class="layer-close"></span>
+				</div>
+	        </div>
+	    </div>
 </body>
-</html> 
+</html>
